@@ -6,6 +6,7 @@ Not implemented access control and security features, maybe in future
 * Enter directory project and run composer install to add dependences
 * In folder configs/ setup your configuration enviroment and Database
 * In src/container.php you can add the configurations to slim
+* To access api, is necessary setup a website in src/routes/routes.php, i will change this in future
 
 **Missing implements**
 * Update routers

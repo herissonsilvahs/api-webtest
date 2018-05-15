@@ -14,7 +14,7 @@ return [
         ],
         'db' => [
             'driver' => 'pgsql',
-            'host' => parser_url(getenv('DATABASE_URL')),
+            'host' => parse_url(getenv('DATABASE_URL')),
             'database' => 'WebTest_App',
             'username' => 'root',
             'password' => '',

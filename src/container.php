@@ -41,7 +41,6 @@ $container['db'] = function (Container $container) {
         'username' => $settings['db']['username'],
         'password' => $settings['db']['password'],
         'charset'  => $settings['db']['charset'],
-        'collation' => $settings['db']['collation'],
         'prefix' => $settings['db']['prefix'],
     ];
 

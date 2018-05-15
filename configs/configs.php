@@ -17,7 +17,7 @@ return [
         'db' => [
             'driver' => 'pgsql',
             'host' => $db['host'],
-            'database' => ltrim($db['path'].'/'),
+            'database' => ltrim($db['path'],'/'),
             'username' => $db['user'],
             'password' => $db['pass'],
             'port' => $db['port'],

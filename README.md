@@ -1,5 +1,5 @@
-Simple API php with slim framework
-Not 100% funcionality, *just for learning*
+Simple API php with slim framework<br>
+Not 100% funcionality, *just for learning*<br>
 Not implemented access control and security features, maybe in future
 
 **Usage**

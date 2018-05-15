@@ -12,25 +12,6 @@ $container['logger'] = function($c) {
     return $logger;
 };
 
-// $container['view'] = function($container) {
-//     $settings = $container->get('settings');
-//     $viewPath = $settings['twig']['path'];
-
-//     $twig = new \Slim\Views\Twig($viewPath, [
-//         'cache' => $settings['twig']['cache_enabled'] ? $settings['twig']['cache_path'] : false
-//     ]);
-
-//     /** @var Twig_Loader_Filesystem $loader */
-//     $loader = $twig->getLoader();
-//     $loader->addPath($settings['public'], 'public');
-
-//     // Instantiate and add Slim specific extension
-//     $basePath = rtrim(str_ireplace('index.php', '', $container->get('request')->getUri()->getBasePath()), '/');
-//     $twig->addExtension(new Slim\Views\TwigExtension($container->get('router'), $basePath));
-
-//     return $twig;
-// };
-
 $container['db'] = function (Container $container) {
     $settings = $container->get('settings');
 

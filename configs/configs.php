@@ -21,8 +21,8 @@ return [
             'username' => $db['user'],
             'password' => $db['pass'],
             'port' => $db['port'],
-            'charset'   => '',
-            'collation' => '',
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_general_ci',
             'prefix'    => '',
         ]
     ],

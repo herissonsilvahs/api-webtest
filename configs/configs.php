@@ -1,5 +1,7 @@
 <?php
 
+$db = parse_url(getenv('DATABASE_URL'));
+
 return [
     'settings' => [
         // Slim Settings
@@ -14,10 +16,11 @@ return [
         ],
         'db' => [
             'driver' => 'pgsql',
-            'host' => parse_url(getenv('DATABASE_URL')),
-            'database' => 'WebTest_App',
-            'username' => 'root',
-            'password' => '',
+            'host' => $db['host'],
+            'database' => ltrim($db['path'].'/'),
+            'username' => $db['user'],
+            'password' => $db['pass'],
+            'port' => $db['port'],
             'charset'   => 'utf8mb4',
             'collation' => 'utf8mb4_general_ci',
             'prefix'    => '',

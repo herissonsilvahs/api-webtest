@@ -5,22 +5,5 @@ use Slim\Http\Request as Request;
 
 # require route files
 
-$app->options('/{routes:.+}', function ($request, $response, $args) {
-    return $response;
-});
-
-$app->add(function ($req, $res, $next) {
-    $response = $next($req, $res);
-    return $response
-            ->withHeader('Access-Control-Allow-Origin', 'https://herissonsilvahs.github.io/client-webtest/races.html')
-            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
-            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-});
-
-$app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/{routes:.+}', function($req, $res) {
-    $handler = $this->notFoundHandler; // handle using the default Slim page not found handler
-    return $handler($req, $res);
-});
-
 require_once 'register-routes.php';
 require_once 'get-routes.php';

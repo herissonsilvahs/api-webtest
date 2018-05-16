@@ -5,6 +5,10 @@ use Slim\Http\Request as Request;
 
 # require route files
 
+$app->options('/{routes:.+}', function ($request, $response, $args) {
+    return $response;
+});
+
 $app->add(function ($req, $res, $next) {
     $response = $next($req, $res);
     return $response

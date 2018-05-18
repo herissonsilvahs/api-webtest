@@ -15,10 +15,14 @@ $app->post('/api/v1/motorist/new[/]', function($request, $response, $args){
         $motorist->status = 1;
         $motorist->car_model = $values['car_model'];
         if($motorist->save())
-            return $response->withJson(200);
-    }
+            return $response->withJson("Saved success",200);
+        else
+            return $response->withJson("Occurred error to insert motorist",400);
 
-    return $response->withJson(400);
+    }else
+        return $response->withJson("Occurred error to insert user",400);
+
+    return $response->withJson("Occurred some error",400);
 });
 
 $app->post('/api/v1/passenger/new[/]', function($request, $response, $args){
@@ -36,9 +40,12 @@ $app->post('/api/v1/passenger/new[/]', function($request, $response, $args){
         $passenger->user_id = $user->id;
         if($passenger->save())
             return $response->withJson(200);
-    }
+        else
+            return $response->withJson("Occurred error to insert passenger",400);
+    }else
+        return $response->withJson("Occurred error to insert user",400);
 
-    return $response->withJson(400);
+    return $response->withJson("Occurred some error",400);
 });
 
 $app->post('/api/v1/race/new[/]', function($request, $response, $args){
@@ -50,6 +57,8 @@ $app->post('/api/v1/race/new[/]', function($request, $response, $args){
     $race->motorist = $values['motorist'];
     if($race->save())
         return $response->withJson(200);
+    else
+        return $response->withJson("Occurred error to insert race",400);
 
-    return $response->withJson(400);
+    return $response->withJson("Occurred some error",400);
 });

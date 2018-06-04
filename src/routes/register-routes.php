@@ -3,6 +3,7 @@
 $app->post('/api/v1/motorist/new[/]', function($request, $response, $args){
     $motorist = new Motorist();
     $user = new User();
+    $values = $request->getParsedBody();
 
     $user->name = $values['name_user'];
     $date = new DateTime($values['birthday_user']);

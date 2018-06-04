@@ -1,38 +1,34 @@
 <?php
 
 $app->get('/api/v1/motorists[/]', function($request, $response, $args){
-    $motorists = Passenger::all();
+    $motorists = Motorist::all();
     $userMotorists = [];
-    for($i = 0; $i < count($motorists); $i++)
+    foreach($motorists as $key)
     {
-        $userMotorists[$i] = array(
-            'user_data' => $motorists[$i]->belongsTo(User::class, 'user_id', 'id')->first(),
-            'motorist_data' => $motorists[$i]
-        );
+        array_push($userMotorists, array(
+            'user_data' => $motorists[$key]->belongsTo(User::class, 'user_id', 'id')->first(),
+            'motorist_data' => $motorists[$key]
+        ));
     }
-
     return $response->withJson($userMotorists, 200);
 });
 
 $app->get('/api/v1/passengers[/]', function($request, $response, $args){
     $passengers = Passenger::all();
     $userPassengers = [];
-    for($i = 0; $i < count($passengers); $i++)
+    foreach($passengers as $key)
     {
-        $userPassengers[$i] = array(
-            'user_data' => $passengers[$i]->belongsTo(User::class, 'user_id', 'id')->first(),
-            'passenger_data' => $passengers[$i]
-        );
+        array_push($userPassengers, array(
+            'user_data' => $passengers[$key]->belongsTo(User::class, 'user_id', 'id')->first(),
+            'passenger_data' => $passengers[$key]
+        ));
     }
-
     return $response->withJson($userPassengers, 200);
 });
 
 $app->get('/api/v1/races[/]', function($request, $response, $args){
     $races = Race::all();
-
     $racesList = [];
-
     foreach($races as $key => $value)
     {
         $passenger = Passenger::where('id', '=', $value['passenger_id'])->first();
@@ -59,7 +55,6 @@ $app->get('/api/v1/races[/]', function($request, $response, $args){
             'updated_at' => $value['updated_at']
         ));
     }
-
     return $response->withJson($racesList, 200)->withAddedHeader('Access-Control-Allow-Origin', '*');
 });
 
